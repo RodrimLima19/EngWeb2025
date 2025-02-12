@@ -54,8 +54,7 @@ Os testes realizados basearam-se em dados de entrada contendo informações sobr
 - **Node.js**: Utilizado para o desenvolvimento do servidor backend.
 - **Axios**: Usado para realizar requisições HTTP.
 - **Tailwind CSS**: Framework CSS utilizado para estilizar a interface do usuário.
-- **Express**: Framework web para facilitar o roteamento e o gerenciamento de requisições HTTP.
 
 ---
 
-ℹ️ Este projeto foi desenvolvido no âmbito da disciplina de **Engenharia** da **Universidade do Minho**.
+ℹ️ Este projeto foi desenvolvido no âmbito da disciplina de **Engenharia Web** da **Universidade do Minho**.
