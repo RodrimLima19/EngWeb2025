@@ -1,6 +1,6 @@
 # TPC1 - Oficina de Viaturas
 
-📅 **Data:** 2024-02-12  
+📅 **Data:** 2025-02-12  
 👤 **Autor:** Rodrigo Mendes Lima, A104181  
 ![Foto](../Images/foto.jpg)  
 
@@ -19,7 +19,6 @@ Este projeto implementa um **sistema de gestão para oficina de viaturas**, perm
 Os testes realizados basearam-se em dados de entrada contendo informações sobre viaturas, reparações e intervenções. O sistema foi testado para garantir que:
 
 - As viaturas, reparações e intervenções são corretamente listadas e ordenadas conforme os parâmetros fornecidos.
-- A filtragem funciona de forma precisa, permitindo procurar por marca, modelo, matrícula, código de intervenção, entre outros.
 - As páginas de detalhes das viaturas, reparações e intervenções são geradas corretamente.
 
 ## Como Usar
