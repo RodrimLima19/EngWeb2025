@@ -288,7 +288,6 @@ exports.genViaturaDetailPage = function (viatura) {
     </head>
     <body class="bg-gray-900 min-h-screen p-6">
         <div class="container mx-auto relative">
-            <!-- Botão quadrado para voltar no canto superior direito -->
             <a href="/viaturas/${viatura.marca}" class="absolute top-2 right-4 w-10 h-10 bg-white text-black flex items-center justify-center rounded-lg shadow-lg hover:bg-gray-200">
                 <span class="text-xl">&larr;</span>
             </a>
