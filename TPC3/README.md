@@ -1,6 +1,6 @@
 # TPC3 - Gestão de Alunos
 
-📅 **Data:** 2025-02-25  
+📅 **Data:** 2025-02-26  
 👤 **Autor:** Rodrigo Mendes Lima, A104181  
 ![Foto](../Images/foto.jpg)  
 
