@@ -1,7 +1,7 @@
 # TPC5 - Sistema de Gestão de Alunos
 
 📅 **Data:** 2025-03-19
-👤 **Autor:** [Seu Nome], [Seu Número de Aluno]  
+👤 **Autor:** Rodrigo Mendes Lima, A104181  
 ![Foto](../Images/foto.jpg)  
 
 ## Descrição
