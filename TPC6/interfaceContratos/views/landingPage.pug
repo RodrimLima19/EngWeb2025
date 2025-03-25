@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  header.w3-container.w3-indigo
+    .w3-row
+      .w3-col.s6.w3-center
+        h1.w3-text-white 
+          i.fas.fa-file-contract(style="margin-right:10px") 
+          | Contratos
+      .w3-col.s6.w3-right-align
+        p.w3-text-white
+          i.fas.fa-calendar-alt(style="margin-right:5px")
+          = new Date().toLocaleDateString('pt-PT')
+        p.w3-text-white
+          i.fas.fa-list-ol(style="margin-right:5px")
+          | Total de Contratos: #{contratos ? contratos.length : 0}
+  
+  .w3-container.w3-margin-top
+    if contratos && contratos.length > 0
+      .w3-responsive
+        table.w3-table.w3-striped.w3-border.w3-hoverable.w3-card-4
+          thead
+            tr.w3-deep-purple
+              th.w3-text-white ID Contrato
+              th.w3-text-white Objeto
+              th.w3-text-white Data
+              th.w3-text-white Preço
+              th.w3-text-white NIPC
+              th.w3-text-white Entidade
+          tbody
+            each contrato in contratos
+              tr.w3-light-grey
+                td
+                  a.w3-text-indigo(href=`/${contrato._id}`)= contrato._id
+                td= contrato.objectoContrato
+                td.w3-text-dark-grey= contrato.dataCelebracaoContrato
+                td.w3-text-green= contrato.precoContratual + ' €'
+                td
+                  a.w3-text-indigo(href=`/entidades/${contrato.NIPC_entidade_comunicante}`)= contrato.NIPC_entidade_comunicante
+                td.w3-text-dark-grey= contrato.entidade_comunicante
+    else
+      .w3-panel.w3-pale-yellow.w3-border.w3-border-yellow.w3-round-large
+        h3.w3-text-orange 
+          i.fas.fa-exclamation-triangle(style="margin-right:10px")
+          | Aviso!
+        p Nenhum contrato encontrado na base de dados.
+        a.w3-btn.w3-orange.w3-round(href="/") Voltar à página inicial
+
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
