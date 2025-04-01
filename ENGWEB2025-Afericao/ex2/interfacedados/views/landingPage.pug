@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  header.w3-container.w3-indigo
+    .w3-row
+      .w3-col.s6.w3-center
+        h1.w3-text-white 
+          i.fas.fa-book(style="margin-right:10px") 
+          | Catálogo de Livros
+      .w3-col.s6.w3-right-align
+        p.w3-text-white
+          i.fas.fa-calendar-alt(style="margin-right:5px")
+          = new Date().toLocaleDateString('pt-PT')
+        p.w3-text-white
+          i.fas.fa-book-open(style="margin-right:5px")
+          | Total de Livros: #{livros ? livros.length : 0}
+  
+  .w3-container.w3-margin-top
+    if livros && livros.length > 0
+      .w3-responsive
+        table.w3-table.w3-striped.w3-border.w3-hoverable.w3-card-4
+          thead
+            tr.w3-deep-purple
+              th.w3-text-white ID
+              th.w3-text-white Título
+              th.w3-text-white Autor(es)
+              th.w3-text-white Data Publicação
+              th.w3-text-white Páginas
+          tbody
+            each livro in livros
+              tr.w3-light-grey
+                td
+                  a.w3-text-indigo(href=`/${livro._id}`)= livro._id
+                td= livro.title
+                td
+                  each autor, index in livro.author
+                    - const autorId = livro.authorIds && livro.authorIds[index] ? livro.authorIds[index] : encodeURIComponent(autor)
+                    a.w3-text-indigo(href=`/entidades/${autorId}`)= autor
+                    if index < livro.author.length - 1
+                      | , 
+                td.w3-text-dark-grey= livro.publishDate
+                td.w3-text-green= livro.pages
+    else
+      .w3-panel.w3-pale-yellow.w3-border.w3-border-yellow.w3-round-large
+        h3.w3-text-orange 
+          i.fas.fa-exclamation-triangle(style="margin-right:10px")
+          | Aviso!
+        p Nenhum livro encontrado na base de dados.
+        a.w3-btn.w3-orange.w3-round(href="/") Voltar à página inicial
+
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")

@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  header.w3-container.w3-indigo
+    .w3-row
+      .w3-col.s10
+        h1.w3-text-white 
+          i.fas.fa-user-edit(style="margin-right:10px") 
+          | Autor: #{autor}
+      .w3-col.s2.w3-right-align
+        a.w3-btn.w3-round.w3-white.w3-text-indigo(href="/") 
+          i.fas.fa-home(style="margin-right:5px")
+          | Voltar
+
+  .w3-container.w3-margin-top
+    .w3-card-4.w3-padding.w3-margin-bottom
+      h3.w3-text-indigo
+        i.fas.fa-info-circle(style="margin-right:10px")
+        | Informação do Autor
+      table.w3-table-all
+        tr
+          th.w3-indigo.w3-text-white Nome
+          td= autor || 'Não disponível'
+
+    .w3-card-4.w3-padding
+      h3.w3-text-indigo
+        i.fas.fa-book(style="margin-right:10px")
+        | Obras do Autor (#{livros.length})
+      
+      if livros && livros.length > 0
+        .w3-responsive
+          table.w3-table.w3-striped.w3-border.w3-hoverable
+            thead
+              tr.w3-deep-purple
+                th.w3-text-white ID
+                th.w3-text-white Título
+                th.w3-text-white Data Publicação
+                th.w3-text-white Páginas
+                th.w3-text-white Classificação
+            tbody
+              each livro in livros
+                tr.w3-light-grey
+                  td
+                    a.w3-text-indigo(href=`/${livro._id}`)= livro._id
+                  td= livro.title
+                  td.w3-text-dark-grey= livro.publishDate
+                  td= livro.pages || '-'
+                  td
+                    - const rating = livro.rating || 0
+                    .w3-light-grey.w3-round(style="width:100%")
+                      .w3-container.w3-center.w3-round(class=`w3-${rating >= 4 ? 'green' : rating >= 3 ? 'yellow' : 'red'}` style=`width:${(rating/5)*100}%`)= rating.toFixed(1)
+      else
+        .w3-panel.w3-pale-yellow.w3-border.w3-border-yellow.w3-round-large
+          h4.w3-text-orange 
+            i.fas.fa-exclamation-circle(style="margin-right:10px")
+            | Nenhum livro encontrado
+          p Este autor não tem livros registados no sistema.
+
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
